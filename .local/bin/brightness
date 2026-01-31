@@ -1,5 +1,5 @@
 #!/bin/bash
 
-(( br = $(brightnessctl get) * 100 / 255 ))
+BRIGHTNESS=$(brightnessctl info | grep -Po "\d+(?=%)" | head -n 1)
 
- echo -n "$(percentage $br        ) $br% "
+echo -n "$(percentage $BRIGHTNESS    ) $BRIGHTNESS% "
